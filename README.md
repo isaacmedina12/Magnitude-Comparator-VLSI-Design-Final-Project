@@ -6,7 +6,7 @@ A comprehensive written report can be found here.
 
 NOTE: The "SourcePawn" files are actually SPICE files. GitHub recognizes .sp files as SourcePawn files instead.
 
-The final circuit netlist is in the "Final-Timing-Parameters" folder in the "comparator_timing_v3.sp" file. 
+The final circuit netlist is in the "Final-Timing-Parameters" folder in the "comparator_timing_v3.sp" file. This circuit was optimized to run at ~500 MHz given the final timing parameters.
 
 ## Logic Circuit Diagram
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
