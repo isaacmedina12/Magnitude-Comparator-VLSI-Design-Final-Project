@@ -8,4 +8,4 @@ A comprehensive written report can be found here.
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
 
 ## Synopsys Custom Compiler Schematic
-![Synopsys Custom Compiler Schematic]()
+![Synopsys Custom Compiler Schematic](Schematics/SynopsysCustomCompilerCircuit.png)
