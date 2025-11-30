@@ -16,3 +16,6 @@ The final circuit netlist is in the "Final-Timing-Parameters" folder in the "com
 
 ## Ground Truth VHDL Waveform | GTKWave
 ![GTKWave Output Waveform](VHDL/GTKWave_output.png)
+
+## Verification of Functionality Waveform | Hspice/Custom Waveview
+![Verification of Functionality Waveform](verification_waveform_hspice.png)
