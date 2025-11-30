@@ -356,6 +356,6 @@ Vb0in b0_in 0 0
 *       TRIG v(b1_in) val='0.5*vdd' rise=2 \
 *       TARG v(e)     val='0.5*vdd' rise=2
 
-.measure tran tp_case_8 param='(tphl_E_1111_1101 + tplh_E_1101_1111)/2'
+*.measure tran tp_case_8 param='(tphl_E_1111_1101 + tplh_E_1101_1111)/2'
 
 .end
