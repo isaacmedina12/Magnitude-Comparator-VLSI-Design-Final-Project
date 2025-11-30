@@ -4,4 +4,8 @@ This project uses CMOS transistor topology to implement the digital logic functi
 
 A comprehensive written report can be found here. 
 
-## Schematics
+## Logic Circuit Diagram
+![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
+
+## Synopsys Custom Compiler Schematic
+![Synopsys Custom Compiler Schematic]()
