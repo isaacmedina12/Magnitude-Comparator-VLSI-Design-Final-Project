@@ -14,7 +14,7 @@ Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
 
 ## Synopsys Custom Compiler Schematic
-![Synopsys Custom Compiler Schematic](Schematics/SynopsysCustomCompilerCircuit.png)
+![Synopsys Custom Compiler Schematic](Schematics/SynopsysCustomCompilerMarkedUp.png)
 
 ## Ground Truth VHDL Waveform | GTKWave
 ![GTKWave Output Waveform](VHDL/GTKWave_output.png)
