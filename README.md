@@ -20,6 +20,10 @@ Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 - **Timing Analysis with Buffer Insertion**
   - See "Buffered-Inserted-Timing" directory for .sp file and .lis output files
 
+- **VHDL Script and Testbench**
+  - See "VHDL" directory
+  - GTKWave ground truth waveform below
+  
 See figures below for circuit diagrams and verification of functionality waveforms.
 
 ## Logic Circuit Diagram
