@@ -7,8 +7,8 @@
 *              as described in "Critical Path" section on p.11 of my report.
 
 * Testing G and L cases to confirm critical path:
-*      tp_g_test = 6.5900n
-*      tp_l_test = 6.5983n
+*      tp_g_test = 6.9701n
+*      tp_l_test = 6.9757n
 
 * Worst case vectors (always when E is rising or falling, given B1_in or A1_in is rising/falling)
 * There are 16 total times to measure:
@@ -31,21 +31,23 @@
 *      Case 8: 1111 --> 1101 (falling E, falling B1_in); 1101 --> 1111 (rising E, rising B1_in)
 
 * Results -- tp = (tphl + tplh)/2 : 
-*      Case 1: tp = 19.9850n
-*      Case 2: tp = 20.0336n
+*      Case 1: tp = 19.9556n
+*      Case 2: tp = 20.0576n
 
-*      Case 3: tp = 19.9361n
-*      Case 4: tp = 19.9957n
+*      Case 3: tp = 19.9157n
+*      Case 4: tp = 19.9255n
 
-*      Case 5: tp = 20.1348n
-*      Case 6: tp = 20.0355n
+*      Case 5: tp = 20.0988n
+*      Case 6: tp = 20.0015n
 
-*      Case 7: tp = 20.1078n
-*      Case 8: tp = 19.9933n
+*      Case 7: tp = 20.0650n
+*      Case 8: tp = 19.9686n
 
 
 
 * ======================= THE SPICE SCRIPT BEGINS HERE ======================= *
+
+
 
 * Include Libraries:
 .lib '/usr/cots/synopsys/UniversityLibrary/SAED32_EDK/tech/hspice/saed32nm.lib' TT
@@ -58,58 +60,57 @@
 .model n105 nmos level=54
 .model p105 pmos level=54
 
-* Comparator subcircuit netlist from Synopsys Custom Compiler:
-.subckt comparator_v2 a0 a0_in a0_not a1 a1_in a1_not b0 b0_in b0_not b1 b1_in
+.subckt comparator_v3 a0 a0_in a0_not a1 a1_in a1_not b0 b0_in b0_not b1 b1_in
 + b1_not e g gnd_1 l vdd xor_out
-xm38 net56 xor_out vdd vdd p105 w=1.44u l=100n nf=1 m=1
-xm39 net58 b0_not net56 vdd p105 w=1.44u l=100n nf=1 m=1
-xm40 l a0 net58 vdd p105 w=1.44u l=100n nf=1 m=1
-xm44 net54 b1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
-xm45 l a1 net54 vdd p105 w=0.96u l=100n nf=1 m=1
-xm35 g b1 net22 vdd p105 w=0.96u l=100n nf=1 m=1
-xm34 net22 a1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
-xm30 g b0 net14 vdd p105 w=1.44u l=100n nf=1 m=1
-xm29 net14 a0_not net10 vdd p105 w=1.44u l=100n nf=1 m=1
-xm28 net10 xor_out vdd vdd p105 w=1.44u l=100n nf=1 m=1
-xm17 xor_out b1_not net4 vdd p105 w=0.96u l=100n nf=1 m=1
-xm24 xor_out b1 net2 vdd p105 w=0.96u l=100n nf=1 m=1
-xm23 net2 a1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
-xm16 net4 a1 vdd vdd p105 w=0.96u l=100n nf=1 m=1
-xm22 e l net1 vdd p105 w=0.96u l=100n nf=1 m=1
-xm21 net1 g vdd vdd p105 w=0.96u l=100n nf=1 m=1
-xm12 b1 b1_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm14 b0 b0_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm6 b0_not b0_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm4 b1_not b1_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm0 a1_not a1_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm10 a0 a0_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm8 a1 a1_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm2 a0_not a0_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
-xm41 l xor_out net53 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm43 l b0_not net53 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm47 l a0 net53 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm42 net53 b1_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm46 net53 a1 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm36 net42 b1 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm32 net42 a1_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm37 g b0 net42 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm33 g a0_not net42 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm31 g xor_out net42 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm26 net3 b1_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm19 net5 b1 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm25 xor_out a1_not net3 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm18 xor_out a1 net5 gnd_1 n105 w=0.6u l=100n nf=1 m=1
-xm27 e l gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm20 e g gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm15 b0 b0_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm13 b1 b1_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm7 b0_not b0_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm5 b1_not b1_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm1 a1_not a1_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm9 a1 a1_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-xm3 a0_not a0_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm18 xor_out a1 net13 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm25 xor_out a1_not net10 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm19 net13 b1 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm26 net10 b1_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm31 net21 xor_out gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm33 net21 a0_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm37 net21 b0 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm32 g a1_not net21 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm36 g b1 net21 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm46 l a1 net29 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm42 l b1_not net29 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm47 net29 a0 gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm43 net29 b0_not gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
+xm41 net29 xor_out gnd_1 gnd_1 n105 w=0.6u l=100n nf=1 m=1
 xm11 a0 a0_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
-.ends comparator_v2
+xm3 a0_not a0_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm9 a1 a1_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm1 a1_not a1_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm5 b1_not b1_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm7 b0_not b0_in gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm13 b1 b1_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm15 b0 b0_not gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm20 e g gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm27 e l gnd_1 gnd_1 n105 w=0.3u l=100n nf=1 m=1
+xm2 a0_not a0_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm8 a1 a1_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm10 a0 a0_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm0 a1_not a1_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm4 b1_not b1_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm6 b0_not b0_in vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm14 b0 b0_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm12 b1 b1_not vdd vdd p105 w=0.48u l=100n nf=1 m=1
+xm21 net11 g vdd vdd p105 w=0.96u l=100n nf=1 m=1
+xm22 e l net11 vdd p105 w=0.96u l=100n nf=1 m=1
+xm16 net12 a1 vdd vdd p105 w=0.96u l=100n nf=1 m=1
+xm23 net9 a1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
+xm24 xor_out b1 net9 vdd p105 w=0.96u l=100n nf=1 m=1
+xm17 xor_out b1_not net12 vdd p105 w=0.96u l=100n nf=1 m=1
+xm28 net7 xor_out vdd vdd p105 w=1.44u l=100n nf=1 m=1
+xm29 net8 a0_not net7 vdd p105 w=1.44u l=100n nf=1 m=1
+xm30 g b0 net8 vdd p105 w=1.44u l=100n nf=1 m=1
+xm34 net6 a1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
+xm35 g b1 net6 vdd p105 w=0.96u l=100n nf=1 m=1
+xm45 l a1 net2 vdd p105 w=0.96u l=100n nf=1 m=1
+xm44 net2 b1_not vdd vdd p105 w=0.96u l=100n nf=1 m=1
+xm40 l a0 net4 vdd p105 w=1.44u l=100n nf=1 m=1
+xm39 net4 b0_not net3 vdd p105 w=1.44u l=100n nf=1 m=1
+xm38 net3 xor_out vdd vdd p105 w=1.44u l=100n nf=1 m=1
+.ends comparator_v3
 
 * Define vdd and gnd_1:
 .param vdd=1.05
@@ -120,8 +121,9 @@ Rgnd  gnd_1 0  0
 .param trf=6p  del=2u  per=10u  pw=5u
 
 * Instantiate the comparator:
-XUcmp  a0 a0_in a0_not  a1 a1_in a1_not  b0 b0_in b0_not  b1 b1_in b1_not \
-      e  g  gnd_1 l  vdd  xor_out comparator_v2
+XUcmp  a0 a0_in a0_not a1 a1_in a1_not b0 b0_in b0_not b1 b1_in
++ b1_not e g gnd_1 l vdd xor_out comparator_v3
+
 
 * Define load capacitances (128Cin | H = 128 all paths):
 Cload_g g 0 350f
@@ -129,8 +131,7 @@ Cload_e e 0 350f
 Cload_l l 0 350f
 
 
-
-* ========= Initial Tests of G and L delay to confirm critical path ========== *
+* ============= Tests of G and L delay to confirm critical path ============== *
 
 * G = 1 --> 0 --> 1 | 0100 --> 0110 --> 0100
 *Va1in a1_in 0 0
@@ -185,8 +186,8 @@ Vb0in b0_in 0 0
 .measure tran tplh_E_1000_0000  \
        TRIG v(a1_in) val='0.5*vdd' fall=2 \
        TARG v(e)     val='0.5*vdd' rise=2
-
-*.measure tran tp_case_1 param='(tphl_E_0000_1000 + tplh_E_1000_0000)/2'
+       
+.measure tran tp_case_1 param='(tphl_E_0000_1000 + tplh_E_1000_0000)/2'
 
 
 * Case 2: 0000 --> 0010 (falling E, rising B1_in); 0010 --> 0000 (rising E, falling B1_in)
@@ -243,13 +244,13 @@ Vb0in b0_in 0 0
 *.measure tran tp_case_4 param='(tphl_E_0101_0111 + tplh_E_0111_0101)/2'
 
 
-* Case 5: 1010 --> 0010 (falling E, falling A1_in); 1101 --> 0101 (rising E, rising A1_in) 
+* Case 5: 1010 --> 0010 (falling E, falling A1_in); 0010 --> 1010 (rising E, rising A1_in) 
 *Va1in a1_in 0 pulse vdd 0 del trf trf pw per
 *Va0in a0_in 0 0
 *Vb1in b1_in 0 vdd
 *Vb0in b0_in 0 0
 
-*.tran 1p 30u
+*.tran 1p 30u 
 *.measure tran tphl_E_1010_0010  \
 *       TRIG v(a1_in) val='0.5*vdd' fall=2 \
 *       TARG v(e)     val='0.5*vdd' fall=2
@@ -258,7 +259,7 @@ Vb0in b0_in 0 0
 *       TRIG v(a1_in) val='0.5*vdd' rise=2 \
 *       TARG v(e)     val='0.5*vdd' rise=2
 
-*.measure tran tp_case_5 param='(tphl_E_1010_0010 + tplh_E_0010_1010)/2'
+*.measure tran tp_case_5 param='(tphl_E_1010_0010 + tplh_E_0010_1010)/2' 
 
 
 * Case 6: 1010 --> 1000 (falling E, falling B1_in); 1000 --> 1010 (rising E, rising B1_in) 
@@ -270,7 +271,7 @@ Vb0in b0_in 0 0
 *.tran 1p 30u
 *.measure tran tphl_E_1010_1000  \
 *       TRIG v(b1_in) val='0.5*vdd' fall=2 \
-*       TARG v(e)     val='0.5*vdd' fall=2
+*       TARG v(e)     val='0.5*vdd' fall=2*
 
 *.measure tran tplh_E_1000_1010  \
 *       TRIG v(b1_in) val='0.5*vdd' rise=2 \
