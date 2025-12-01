@@ -10,6 +10,16 @@ The buffered circuit netlist is in the "Final-Timing-Parameters" directory in th
 
 Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 
+## Repository Structure
+- **Initial Circuit Analysis Files (No sizing or buffers)**
+  - See "Initial-Timing" directory for .sp file and .lis output files
+
+- **Timing Analysis After Logical Effort and Resizing (No buffers)**
+  - See "Non-Buffered-Timing" directory for .sp file and .lis output files
+ 
+- **Timing Analysis with Buffer Insertion**
+  - See "Buffered-Inserted-Timing" directory for .sp file and .lis output files
+
 ## Logic Circuit Diagram
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
 
