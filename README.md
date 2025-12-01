@@ -43,4 +43,4 @@ See figures below for circuit diagrams and verification of functionality wavefor
 ![GTKWave Output Waveform](VHDL/GTKWave_output.png)
 
 ## Verification of Functionality Waveform | Hspice/Custom Waveview
-![Verification of Functionality Waveform](Verification\ of\ Functionality/verification_waveform_hspice.png)
+![Verification of Functionality Waveform](Verification of Functionality/verification_waveform_hspice.png)
