@@ -6,7 +6,9 @@ A comprehensive written report can be found here.
 
 NOTE: The "SourcePawn" files are actually SPICE files. GitHub recognizes .sp files as SourcePawn files instead.
 
-The buffered circuit netlist is in the "Final-Timing-Parameters" directory in the "comparator_timing_v3.sp" file. The non-buffered netlist is in the "Timing_with_Scaling" directory in the "comparator_timing_v2.sp" file. Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
+The buffered circuit netlist is in the "Final-Timing-Parameters" directory in the "comparator_timing_v3.sp" file. The non-buffered netlist is in the "Timing_with_Scaling" directory in the "comparator_timing_v2.sp" file. 
+
+Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 
 ## Logic Circuit Diagram
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
