@@ -23,6 +23,13 @@ Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 - **VHDL Script and Testbench**
   - See "VHDL" directory
   - GTKWave ground truth waveform below
+
+- **Verification of Functionality**
+   - .sp script
+   - Output waveform result from Custom Waveview
+
+- **Schematics**
+  - Logic diagrams and schematics from the project
   
 See figures below for circuit diagrams and verification of functionality waveforms.
 
