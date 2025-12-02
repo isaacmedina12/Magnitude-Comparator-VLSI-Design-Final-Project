@@ -8,7 +8,7 @@ A comprehensive written report can be found here.
 
 NOTE: The "SourcePawn" files are actually SPICE files. GitHub recognizes .sp files as SourcePawn files instead.
 
-The buffered circuit netlist is in the "Final-Timing-Parameters" directory in the "comparator_timing_v3.sp" file. The non-buffered netlist is in the "Timing_with_Scaling" directory in the "comparator_timing_v2.sp" file. 
+The buffered circuit netlist is in the "Buffer-Inserted-Timing" directory in the "comparator_timing_v3.sp" file. The non-buffered netlist is in the "Non-Buffered-Timing" directory in the "comparator_timing_v2.sp" file. 
 
 See figures below for circuit diagrams and verification of functionality waveforms.
 
