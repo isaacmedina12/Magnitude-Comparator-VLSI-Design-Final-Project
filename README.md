@@ -4,7 +4,7 @@
 ### School of Engineering | Department of Electrical and Computer Engineering
 This project uses CMOS transistor topology to implement the digital logic function of a 2-bit unsigned magnitude comparator. Given 2-bit unsigned numbers A and B (Decimal range: [0, 1, 2, 3]), the CMOS transistor network computes whether A is greater than, equal to, or less than B. There are three output signals: G, E, and L.
 
-A comprehensive written report can be found here. 
+A comprehensive written report can be found [here](https://drive.google.com/file/d/1e8wgObKoTr_fKnTjhDW_7ElNQtIwBb0Q/view?usp=drive_link). 
 
 NOTE: The "SourcePawn" files are actually SPICE files. GitHub recognizes .sp files as SourcePawn files instead.
 
