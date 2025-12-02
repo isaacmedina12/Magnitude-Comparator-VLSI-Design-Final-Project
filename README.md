@@ -10,7 +10,14 @@ NOTE: The "SourcePawn" files are actually SPICE files. GitHub recognizes .sp fil
 
 The buffered circuit netlist is in the "Final-Timing-Parameters" directory in the "comparator_timing_v3.sp" file. The non-buffered netlist is in the "Timing_with_Scaling" directory in the "comparator_timing_v2.sp" file. 
 
-Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
+See figures below for circuit diagrams and verification of functionality waveforms.
+
+**Design Summary:**
+  - Technology: SAED 32/100nm CMOS
+  - Transistor Count: 48
+  - Worst-case delays (non-buffered): ~2.1 - 2.5 ns
+  - Worst-case delays (buffered): ~1.77 - 1.95 ns
+  - Max operation speed: ~500 MHz
 
 ## Repository Structure
 - **Initial Circuit Analysis Files (No sizing or buffers)**
@@ -33,8 +40,6 @@ Worst case delays < 2 ns (see report for more information): ~500 MHz capable.
 - **Schematics**
   - Logic diagrams and schematics from the project
   
-See figures below for circuit diagrams and verification of functionality waveforms.
-
 ## Logic Circuit Diagram
 ![Logic Circuit Diagram](Schematics/LogicCircuit3VLSIFinalProject.png)
 
