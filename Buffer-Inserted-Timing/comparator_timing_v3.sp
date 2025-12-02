@@ -4,7 +4,7 @@
 * Date: 30 Novemeber 2025
 * Description: Timing of the worst case delays with optimal gate sizing and buffer
 *              insertion. The worst case transition occurs on the critical path as
-*              as described in "Critical Path" section on p.12 of my report.
+*              as described in Figure 32 on p.20 of my report.
 
 * Initial sizing based on p.19-20 of my report. The topology was swapped to have the 
 * buffers at the beginning of the circuit not the end. 
