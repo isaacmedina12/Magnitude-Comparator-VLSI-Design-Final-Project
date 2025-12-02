@@ -4,7 +4,7 @@
 * Date: 24 Novemeber 2025
 * Description: First timing of the worst case delays before gate sizing and buffer
 *              insertion. The worst case transition occurs on the critical path as
-*              as described in "Critical Path" section on p.11 of my report.
+*              as described in "Critical Path" section on p.12 of my report.
 
 * Testing G and L cases to confirm critical path:
 *      tp_g_test = 6.9701n
